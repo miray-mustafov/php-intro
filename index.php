@@ -9,10 +9,26 @@
 </head>
 
 <body>
-    <?php 
-    $name = 'Miray'
-    ?>
-    <p>Hi <?php   echo $name?>, how are you</p>
+
+    <main>
+        <form action="includes/formhandler.php" method="post">
+            <label for="firstname">Firstname</label>
+            <input required id="firstname" type="text" name='firstname' placeholder=Firstname...>
+            
+            <label required for="lastname">Lastname</label>
+            <input id="lastname" type="text" name='lastname' placeholder=Lastname...>
+
+            <label for="favouritepet">Favourite Pet</label>
+            <select name="favouritepet" id="favouritepet">
+                <option value="none">None</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
 </body>
 
 </html>
