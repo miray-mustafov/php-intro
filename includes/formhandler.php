@@ -10,12 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         empty($firstname) || empty($lastname)
     ){
         // exit();
-        header("Location: ../index.php");
+        header("Location: ../formandmatch.php");
     }
     echo "The data:<br>";
     echo "$firstname $lastname<br>$pet";
 }
 else{
     // redirect user to homepage
-    header("Location: ../index.php");
+    header("Location: ../formandmatch.php");
 }
