@@ -1,9 +1,11 @@
 <?php
 //data source name
-$dsn = "mysql:host=localhost;dbname=php_intro";
+$host='localhost';
+$dbname = 'php_intro';
 $dbusername = "root";
 $dbpassword = "";
 
+$dsn = "mysql:host=$host;dbname=$dbname";
 try { // ways to connect
     //mysql (no protection to sql injections),
     //mysql i (improved, some protection)
@@ -15,5 +17,6 @@ try { // ways to connect
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    die( "Connection failed: " . $e->getMessage());
+
 }

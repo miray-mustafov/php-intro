@@ -1,4 +1,6 @@
+
 <?php
+//More secure way of saving state in sessions
 ini_set('session.use_only_cookies', 1); // make sure that website uses only sessid created by our server
 ini_set('session.use_strict_mode', 1); //
 
@@ -22,4 +24,9 @@ if (!isset($_SESSION['last_regeneration'])) {
         session_regenerate_id(true);
         $_SESSION['last_regeneration'] = time();
     }
+}
+function rehenerate_session_id(){
+    session_regenerate_id();
+    $_SESSION['last_regeneration'] = time();
+
 }
