@@ -19,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (is_username_taken($pdo, $username)) {
             $errors['username_taken'] = "Username already taken!";
         }
-        if(is_email_registered( $pdo, $email)){
+        if (is_email_registered($pdo, $email)) {
             $errors['email_used'] = "Email already registered!";
         }
 
-        require_once 'core/config_session.php';//will that work ?
-        if ($errors){
+        require_once '../core/config_session.php';//will that work ?
+        if ($errors) {
             $_SESSION['errors'] = $errors; // save the errors in the session, we need session started
             header("location: ../index.php");
             die();
