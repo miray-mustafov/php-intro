@@ -25,7 +25,7 @@ if (!isset($_SESSION['last_regeneration'])) {
         $_SESSION['last_regeneration'] = time();
     }
 }
-function rehenerate_session_id(){
+function regenerate_session_id(){
     session_regenerate_id();
     $_SESSION['last_regeneration'] = time();
 

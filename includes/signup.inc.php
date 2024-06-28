@@ -26,21 +26,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once '../core/config_session.php';//will that work ?
         if ($errors) {
             $_SESSION['errors'] = $errors; // save the errors in the session, we need session started
+
+            $signupData=[
+                'username' => $username,
+                'email' => $email,
+            ];
+            $_SESSION['signup_data'] = $signupData;
+
             header("location: ../index.php");
             die();
         }
 
+        create_user($pdo, $username, $password, $email);
+        header('location: ../index.php?signup=success');
+        $pdo=null;
+        $stmt=null;
+        die();
 
-        //        $query = "INSERT INTO users (username, pwd, email) VALUES (?, ?, ?);";
-//        $stmt = $pdo->prepare($query);
-//        $stmt->execute([$username, $pwd, $email]);
-//
-//        //close the connection
-//        $pdo = null;
-//        $stmt = null;
-//        header("location:../index.php");
-//
-//        die();//exit()
     } catch (PDOException $e) {
         die('Query Failed' . $e->getMessage());
     }
